@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views import generic
 
+from .models import Note
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+class NoteView(generic.ListView):
+    model = Note
+    template_name = "notes.html"
+    context_object_name = "notes"

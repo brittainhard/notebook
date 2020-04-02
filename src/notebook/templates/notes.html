@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for note in notes %}
+
+  <h2>{{ note.title }}</h2>
+  <p>{{ note.text }}</p>
+  <p>{% for tag in note.tags.values %} {{ tag.name }} {% endfor %}
+
+  {% endfor %}
+{% endblock %}
