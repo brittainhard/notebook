@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% for tag in tags %}
+  <p>{{ tag.name }}</p>
+  {% endfor %}
+
   {% for note in notes %}
 
   <h2>{{ note.title }}</h2>
