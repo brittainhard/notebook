@@ -1,15 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for tag in tags %}
-  <p>{{ tag.name }}</p>
-  {% endfor %}
+  <div class="row">
+    <div class="col col-sm-2">
+    <ul class="tag-list">
+      {% for tag in tags %}
+        <li class="">{{ tag.name }}</li>
+      {% endfor %}
+    </ul>
+    </div>
 
-  {% for note in notes %}
-
-  <h2>{{ note.title }}</h2>
-  <p>{{ note.text }}</p>
-  <p>{% for tag in note.tags.values %} {{ tag.name }} {% endfor %}
-
-  {% endfor %}
+    <div class="col col-lg">
+    {% for note in notes %}
+      <h2>{{ note.title }}</h2>
+      <p>{{ note.text }}</p>
+      <p>{% for tag in note.tags.values %} {{ tag.name }} {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
 {% endblock %}
